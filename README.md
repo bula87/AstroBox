@@ -30,17 +30,23 @@ Installation instructions
   sudo cp AstroBox/* /. -r
   sync
 </pre>
-4. Reboot the BBB
+4. Install python requirements:
+<pre>
+  cd /AstroBox
+  sudo pip install -r requirements.txt
+  sync
+</pre>
+5. Reboot the BBB
 <pre>
   sudo reboot
 </pre>
-5. Execute
+6. Execute
 <pre>
   service astrobox start
 </pre>
-6. Check if it works
+7. Check if it works
   - open in the web browser: http://<YOUR-BBB-IP>:5000
-7. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
+8. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
 
 
 Setting up the virtual printer
