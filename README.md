@@ -21,13 +21,13 @@ Installation instructions
 </pre>
 2. Clone git repo (from BBB)
 <pre>
-  cd ~
-  git clone https://github.com/bula87/AstroBox.git
+  cd /
+  sudo git clone https://github.com/bula87/AstroBox.git
 </pre>
-3. Copy it to correct location
+3. Copy init scripts to correct locations
 <pre>
-  cd ~
-  sudo cp AstroBox/* /. -r
+  cd /AstroBox/init_scripts
+  sudo cp * /. -r
   sync
 </pre>
 4. Install python requirements:
