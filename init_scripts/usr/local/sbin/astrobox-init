@@ -1,0 +1,26 @@
+#!/bin/sh
+
+if [ -f /etc/astrobox/prestart ]; then
+  /etc/astrobox/prestart
+fi
+
+LAST_TIME_FILE=/etc/astrobox/last_known_time
+LAST_KNOWN_TIME="2018-05-02 14:16:32"
+
+if wget -q --spider --no-check-certificate https://www.astroprint.com; then
+  TMP_TIME_CHECK=/tmp/time_check
+  wget -q -O ${TMP_TIME_CHECK} --no-cache --no-check-certificate https://api.astroprint.com/time
+
+  #if the called failed, the file has zero bytes
+  if [ -s ${TMP_TIME_CHECK} ]; then
+    echo "`cat $TMP_TIME_CHECK`" > ${LAST_TIME_FILE}
+  fi
+
+  rm -f ${TMP_TIME_CHECK}
+fi
+
+if [ -f ${LAST_TIME_FILE} ]; then
+  LAST_KNOWN_TIME=`cat $LAST_TIME_FILE`
+fi
+
+date -s "$LAST_KNOWN_TIME"

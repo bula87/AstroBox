@@ -1,0 +1,9 @@
+version:
+  major: 0
+  minor: 11
+  build: "24"
+  commit: "98c70ee52b1a027f93550b2943f3e10663d14df5"
+platform: rpi
+variant:
+  id: de51cd1a57c14ef28f911307c9acb5c5
+  name: AstroBox

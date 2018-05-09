@@ -1,0 +1,22 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          powercheck
+# Required-Start:    $all
+# Required-Stop:
+# Default-Start:     2
+# Default-Stop:      0 6
+# Short-Description: Power Check
+# Description:       Check if the power was cut before orderly shutdown
+### END INIT INFO
+
+FLAG=/etc/poweroff-flag-file
+
+if [ "$1" = "start" ]; then
+  if [ -f "$FLAG" ]; then
+    touch /etc/astrobox/improper-shutdown
+  fi
+
+  date >  "$FLAG"
+elif [ "$1" = "stop" ]; then
+  rm -f $FLAG
+fi

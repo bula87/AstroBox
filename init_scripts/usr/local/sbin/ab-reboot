@@ -1,0 +1,5 @@
+#!/bin/sh
+
+service astrobox stop
+sleep 2
+shutdown -r 0

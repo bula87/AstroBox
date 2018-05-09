@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+  <name replace-wildcards="yes">%h (AstroBox)</name>
+  <service>
+    <type>_http._tcp</type>
+    <port>80</port>
+  </service>
+  <service>
+    <type>_astrobox._tcp</type>
+    <port>80</port>
+    <txt-record>version=0.12(5)</txt-record>
+    <txt-record>variant=AstroBox</txt-record>
+  </service>
+</service-group>
