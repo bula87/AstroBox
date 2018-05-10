@@ -1,0 +1,22 @@
+server:
+  host: 127.0.0.1
+cloudSlicer:
+  apiHost: https://api.astroprint.com
+  boxrouter: wss://boxrouter.astroprint.com
+folder:
+  uploads: /AstroBoxFiles/uploads
+  timelapse: /AstroBoxFiles/timelapse
+  timelapse_tmp: /AstroBoxFiles/timelapse/tmp
+  watched: /AstroBoxFiles/watched
+  userPlugins: /AstroBoxFiles/plugins
+  logs: /var/log/astrobox
+wifi:
+   hotspotDevice: wlan1
+system:
+  actions:
+  - action: shutdown
+    command: /usr/local/sbin/ab-shutdown
+  - action: reboot
+    command: /usr/local/sbin/ab-reboot
+  - action: astrobox-restart
+    command: service astrobox restart

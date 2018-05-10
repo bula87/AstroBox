@@ -71,9 +71,19 @@ start)
   log_daemon_msg "Starting astrobox" "astrobox"
 
   if [ ! -f /etc/astrobox/fs_expanded ]; then
-    raspi-config --expand-rootfs
+		if [ -f /etc/os-release ]; then
+			. /etc/os-release
+
+			echo $ID
+			if [ "raspbian" == "$ID" ]; then # Raspberry PI
+				raspi-config --expand-rootfs
+			else # Other platforms (tested on BBB - Debian)
+				/etc/astrobox/resizePartition.sh
+			fi
+    
     echo "1" > /etc/astrobox/fs_expanded
   fi
+	resize2fs /dev/$(lsblk -o name,mountpoint,label,size,uuid | grep rootfs | cut -b 7- | cut -d ' ' -f1)
 
   if [ ! -f /etc/astrobox/box-id ]; then
     if [ ! -f /etc/astrobox/default-hostname ]; then

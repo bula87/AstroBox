@@ -1,0 +1,15 @@
+; IP Address-to-Host DNS Pointers for the 192.168.0 subnet
+@ IN SOA astrobox.local. hostmaster.local. (
+ 2015022401 ; serial
+ 8H ; refresh
+ 4H ; retry
+ 4W ; expire
+ 1D ; minimum
+)
+
+; define the authoritative name server
+
+@ IN NS astrobox.local.
+
+; our hosts, in numeric order
+1 IN PTR astrobox.local. 

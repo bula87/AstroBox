@@ -1,0 +1,18 @@
+[general]
+configs_folder = /etc/astrobox/janus
+plugins_folder = /usr/lib/arm-linux-gnueabihf/janus/plugins
+transports_folder = /usr/lib/arm-linux-gnueabihf/janus/transports
+log_to_stdout = false
+;log_to_file = /var/log/astrobox/janus.log
+pid_file = /tmp/janus.pid
+debug_level = 0
+debug_timestamps = yes
+debug_colors = yes
+api_secret = d5faa25fe8e3438d826efb1cd3369a50
+[certificates]
+cert_pem = /etc/astrobox/janus/certs/mycert.pem
+cert_key = /etc/astrobox/janus/certs/mycert.key
+[plugins]
+disable = libjanus_audiobridge.so,libjanus_echotest.so,libjanus_recordplay.so,libjanus_sip.so,libjanus_textroom.so,libjanus_videocall.so,libjanus_videoroom.so,libjanus_voicemail.so
+[transports]
+disable = libjanus_rabbitmq.so,libjanus_pfunix.so

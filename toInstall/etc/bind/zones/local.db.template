@@ -1,0 +1,28 @@
+; Use semicolons to add comments.
+; Host-to-IP Address DNS Pointers for local
+; Note: The extra "." at the end of the domain names are important.
+; The following parameters set when DNS records will expire, etc.
+; Importantly, the serial number must always be iterated upward to prevent
+; undesirable consequences. A good format to use is YYYYMMDDII where
+; the II index is in case you make more that one change in the same day.
+$ORIGIN .
+$TTL 86400 ; 1 day
+local. IN SOA astrobox.local. hostmaster.local. (
+ 2015022401 ; serial
+ 8H ; refresh
+ 4H ; retry
+ 4W ; expire
+ 1D ; minimum
+)
+
+; NS indicates that 'astrobox' is a/the nameserver on local
+local. IN NS astrobox.local.
+
+$ORIGIN local.
+
+; Set the address for localhost.local
+localhost IN A 127.0.0.1
+
+; Set the hostnames in alphabetical order
+astrobox IN A 10.10.0.1
+${NETWORK_NAME} IN A 10.10.0.1

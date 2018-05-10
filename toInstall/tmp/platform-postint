@@ -1,0 +1,39 @@
+#!/bin/sh
+
+if [ ! -f /etc/apt/sources.list.d/astroprint.ppa.list ]; then
+  DEBIAN_VERSION=`cat /etc/debian_version | cut -c -1`
+  case "$DEBIAN_VERSION" in
+    9)
+    DEBIAN_NAME="stretch"
+  ;;
+    *)
+    DEBIAN_NAME="stable"
+  ;;
+  esac
+
+  echo "Adding AstroPrint's PPA [${DEBIAN_NAME}] for future updates..."
+  echo "deb [trusted=yes] http://ppa.astroprint.com ${DEBIAN_NAME} main" > /etc/apt/sources.list.d/astroprint.ppa.list
+fi
+
+echo "Enabling astrobox to start on bootup..."
+update-rc.d -f astrobox defaults
+
+
+#!/bin/bash
+
+if [ -f /etc/os-release ]; then
+  . /etc/os-release
+
+	echo $ID
+	if [ "raspbian" == "$ID" ]; then
+		echo "Adding Raspicam V4l2 driver"
+		if grep -Fxq "bcm2835-v4l2" /etc/modules
+		then
+				echo "Already there"
+		else
+				echo "Adding driver"
+				echo 'bcm2835-v4l2' >> /etc/modules
+		fi
+fi
+
+

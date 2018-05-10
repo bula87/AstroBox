@@ -1,8 +1,8 @@
 version:
   major: 0
-  minor: 11
-  build: "24"
-  commit: "98c70ee52b1a027f93550b2943f3e10663d14df5"
+  minor: 12
+  build: "5"
+  commit: "149fa8c5cfa94214d3abad39ab81e75c8ef369a6"
 platform: rpi
 variant:
   id: de51cd1a57c14ef28f911307c9acb5c5
