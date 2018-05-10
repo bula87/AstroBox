@@ -1,4 +1,4 @@
-AstroBox Software - Fork to fix "manual instalation from oryginal source". I will test it on my BeagleBone Black.
+AstroBox Software - Fork to fix "manual instalation from oryginal source". I will test it on my BeagleBone Black / Green.
 =================
 
 Link to oryginal project: https://github.com/AstroPrint/AstroBox
