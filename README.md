@@ -15,11 +15,6 @@ Installation instructions
 1. Install Debian on BBB
   - Get image from: https://beagleboard.org/latest-images
   - I used IoT version but in future will try to get the version with GUI to add my 7 inch LCD to it
-2. Instal dependencies:
-- TODO
-<pre>
-  sudo apt-get install ruby ruby-sass network-manager python-dbus python-apt
-</pre>
 2. Clone git repo (from BBB)
 <pre>
   cd /
@@ -30,14 +25,14 @@ Installation instructions
   sudo /AstroBox/setup.sh
 </pre>
 BBB should reboot a few times
-6. Execute
+4. Execute
 <pre>
   AstroPrint should start on boot. You can also start it manually:
   service astrobox start
 </pre>
-7. Check if it works
+5. Check if it works
   - open in the web browser: http://<YOUR-BBB-IP>:5000
-8. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
+6. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
 
 
 Setting up the virtual printer
