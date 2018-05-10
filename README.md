@@ -7,6 +7,7 @@ Current status
 -------
 
 I was able to run AstroPrint software on my BBB. I tested it without WiFi dongle so, all AP functionality doesn't work for now, but I was able to reach AstroPrint web page via ethernet and also via ssh reverse tunnelling from my mobile phone. In next week I should test more things. Connection with the printer is still not tested.
+I was even able to update software via AstroPrint updating procedure... Looks promising!
 
 Installation instructions
 -------
@@ -24,24 +25,14 @@ Installation instructions
   cd /
   sudo git clone https://github.com/bula87/AstroBox.git
 </pre>
-3. Copy init scripts to correct locations
+3. Setup enviroment
 <pre>
-  cd /AstroBox/init_scripts
-  sudo cp * /. -r
-  sync
+  sudo /AstroBox/setup.sh
 </pre>
-4. Install python requirements:
-<pre>
-  cd /AstroBox
-  sudo pip install -r requirements.txt
-  sync
-</pre>
-5. Reboot the BBB
-<pre>
-  sudo reboot
-</pre>
+BBB should reboot a few times
 6. Execute
 <pre>
+  AstroPrint should start on boot. You can also start it manually:
   service astrobox start
 </pre>
 7. Check if it works
