@@ -31,7 +31,9 @@ BBB should reboot a few times
   service astrobox start
 </pre>
 5. Check if it works
-  - open in the web browser: http://<YOUR-BBB-IP>:5000
+<pre>
+  Open in the web browser: http://<YOUR-BBB-IP>:5000
+</pre>
 6. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
 
 
