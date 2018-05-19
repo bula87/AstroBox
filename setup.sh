@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cp /AstroBox/toInstall/* /. -rf
 sync
@@ -16,13 +16,18 @@ if [ ! -f /etc/apt/sources.list.d/astroprint.ppa.list ]; then
 
   echo "Adding AstroPrint's PPA [${DEBIAN_NAME}] for future updates..."
   echo "deb [trusted=yes] http://ppa.astroprint.com ${DEBIAN_NAME} main" > /etc/apt/sources.list.d/astroprint.ppa.list
-	apt-get update
+  apt-get update
 fi
 
-#!/bin/bash
+if [ ! -f /etc/apt/sources.list.d/tmp_rpi.ppa.list ]; then
+  echo "deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi" > /etc/apt/sources.list.d/tmp_rpi.ppa.list
+  apt-get update
+fi
 
 echo "Installing python packages..."
-apt-get --assume-yes install python2.7 python-pip python-dev python-apt python-dbus haproxy janus=0.2.5-1 gir1.2-gstreamer-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-omx gcodeanaylizer-astroprint astrobox-pip-dependencies
+apt-get --assume-yes --allow-unauthenticated install python2.7 python-pip python-dev python-apt python-dbus haproxy janus=0.2.5-1 gir1.2-gstreamer-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-omx gcodeanaylizer-astroprint astrobox-pip-dependencies
+
+rm /etc/apt/sources.list.d/tmp_rpi.ppa.list
 
 if ! cmp -s /etc/haproxy/haproxy_astrobox.cfg /etc/haproxy/haproxy.cfg; then
   echo "Setting up haproxy..."
@@ -45,16 +50,16 @@ update-rc.d -f astrobox defaults
 if [ -f /etc/os-release ]; then
   . /etc/os-release
 
-	echo $ID
-	if [ "raspbian" == "$ID" ]; then
-		echo "Adding Raspicam V4l2 driver"
-		if grep -Fxq "bcm2835-v4l2" /etc/modules
-		then
-				echo "Already there"
-		else
-				echo "Adding driver"
-				echo 'bcm2835-v4l2' >> /etc/modules
-		fi
+  echo $ID
+  if [ "raspbian" == "$ID" ]; then
+    echo "Adding Raspicam V4l2 driver"
+    if grep -Fxq "bcm2835-v4l2" /etc/modules; then
+        echo "Already there"
+    else
+        echo "Adding driver"
+        echo 'bcm2835-v4l2' >> /etc/modules
+    fi
+  fi
 fi
 
 reboot
