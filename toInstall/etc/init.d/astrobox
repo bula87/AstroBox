@@ -80,6 +80,7 @@ start)
 			else # Other platforms (tested on BBB - Debian)
 				/etc/astrobox/resizePartition.sh
 			fi
+    fi
     
     echo "1" > /etc/astrobox/fs_expanded
   fi
