@@ -22,7 +22,7 @@ if [ ! -f /etc/apt/sources.list.d/tmp_rpi.ppa.list ]; then
 fi
 
 echo "Installing python packages..."
-apt-get --assume-yes --allow-unauthenticated install python2.7 python-pip python-dev python-apt python-dbus haproxy janus=0.2.5-1 gir1.2-gstreamer-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-omx gcodeanaylizer-astroprint astrobox-pip-dependencies
+apt-get --assume-yes --allow-unauthenticated install python2.7 python-pip python-dev python-apt python-dbus network-manager haproxy janus=0.2.5-1 gir1.2-gstreamer-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-omx gcodeanaylizer-astroprint astrobox-pip-dependencies
 
 rm /etc/apt/sources.list.d/tmp_rpi.ppa.list
 
