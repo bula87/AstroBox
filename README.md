@@ -12,29 +12,37 @@ I was even able to update software via AstroPrint updating procedure... Looks pr
 Installation instructions
 -------
 
-1. Install Debian on BBB
+1. Install Debian on device (BeagleBone or other)
   - Get image from: https://beagleboard.org/latest-images
   - I used IoT version but in future will try to get the version with GUI to add my 7 inch LCD to it
-2. Clone git repo (from BBB)
+2. Connect your device to internet (ethernet is recommended)  
+3. Ssh to your device:
+<pre>
+  ssh USER_NAME@IP_OF_YOUR_BOX
+</pre>
+4. ON YOUR DEVICE: Go to linux root directory: 
 <pre>
   cd /
+</pre>
+5. ON YOUR DEVICE: Clone git repository:
+<pre>
   sudo git clone https://github.com/bula87/AstroBox.git
 </pre>
-3. Setup enviroment
+6. ON YOUR DEVICE: Setup enviroment
 <pre>
   sudo /AstroBox/setup.sh
 </pre>
-BBB should reboot a few times
-4. Execute
+BBB should reboot a few times 
+7. Execute
 <pre>
   AstroPrint should start on boot. You can also start it manually:
   service astrobox start
 </pre>
-5. Check if it works
+8. Check if it works
 <pre>
-  Open in the web browser: http://YOUR-BBB-IP:5000
+  Open in the web browser: http://YOUR-BBB-IP:80 or http://YOUR-BBB-IP:5000
 </pre>
-6. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
+9. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
 
 
 Setting up the virtual printer
