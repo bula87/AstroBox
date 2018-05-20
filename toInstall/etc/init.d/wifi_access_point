@@ -12,6 +12,7 @@
 ### END INIT INFO
 
 HOSTSPOT_IF=wlan1
+HOSTSPOT_IF_BACKUP=wlan0
 HOSTAPD_PIDFILE=/var/run/ap_hostapd.pid
 HOSTAPD_BIN=/usr/bin/astroprint/hostapd
 HOSTAPD_TEMPLATE=/etc/astrobox/hostapd.conf.template
@@ -41,7 +42,13 @@ stop_wifi_ap() {
     #echo 0 > /proc/sys/net/ipv4/ip_forward
     #iptables -t nat -D POSTROUTING -s 10.10.0.0/16 -o $ext_interface -j MASQUERADE 2>/dev/null
 
-    ip link set dev $HOSTSPOT_IF down
+    if ip link set dev $HOSTSPOT_IF down; then
+            echo OK;
+    else
+        HOSTSPOT_IF=$HOSTSPOT_IF_BACKUP
+        ip link set dev $HOSTSPOT_IF down
+    fi
+
     ip address del 10.10.0.1/24 dev $HOSTSPOT_IF
 }
 
@@ -49,7 +56,12 @@ start_wifi_ap() {
     log_daemon_msg "Starting wifi_access_point" "wifi_access_point"
 
     ### give a static IP to the wifi interface
-    ip link set dev $HOSTSPOT_IF up
+    if ip link set dev $HOSTSPOT_IF up; then
+            echo OK;
+    else
+        HOSTSPOT_IF=$HOSTSPOT_IF_BACKUP
+        ip link set dev $HOSTSPOT_IF up
+    fi
     ip address add 10.10.0.1/24 broadcast 10.10.0.255 dev $HOSTSPOT_IF
 
     ### enable IP forwarding
