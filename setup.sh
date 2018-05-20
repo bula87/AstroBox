@@ -62,4 +62,7 @@ if [ -f /etc/os-release ]; then
   fi
 fi
 
+systemctl disable bonescript.socket
+systemctl disable bonescript-autorun.service
+
 reboot
