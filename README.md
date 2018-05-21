@@ -1,4 +1,10 @@
-AstroBox Software - Fork to fix "manual instalation from oryginal source". I will test it on my BeagleBone Black / Green.
+AstroBox Software - Fork to fix "manual instalation from oryginal source". 
+=================
+For now, it was tested on:
+=================
+-BeagleBone Black / Green.
+=================
+-OrangePi zero
 =================
 
 Link to oryginal project: https://github.com/AstroPrint/AstroBox
@@ -40,7 +46,7 @@ BBB should reboot a few times
 </pre>
 8. Check if it works
 <pre>
-  Open in the web browser: http://YOUR-BBB-IP:80 or http://YOUR-BBB-IP:5000
+  Open in the web browser: http://YOUR-DEVICE-IP:80
 </pre>
 9. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
 
