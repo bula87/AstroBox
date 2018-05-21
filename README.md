@@ -1,11 +1,11 @@
 AstroBox Software - Fork to fix "manual instalation from oryginal source". 
 =================
 For now, it was tested on:
-=================
+-------
 -BeagleBone Black / Green.
-=================
+-------
 -OrangePi zero
-=================
+-------
 
 Link to oryginal project: https://github.com/AstroPrint/AstroBox
 
