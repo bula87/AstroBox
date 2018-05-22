@@ -37,7 +37,7 @@ Installation instructions
 <pre>
   sudo /AstroBox/setup.sh
 </pre>
-BBB should reboot a few times 
+Your device should reboot a few times.  
 7. Execute
 <pre>
   AstroPrint should start on boot. You can also start it manually:
