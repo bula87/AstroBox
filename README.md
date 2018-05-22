@@ -37,18 +37,16 @@ Installation instructions
 <pre>
   sudo /AstroBox/setup.sh
 </pre>
-Your device should reboot a few times.  
-
-7. Execute
-AstroPrint should start on boot. You can also start it manually:
+Your device should reboot a few times. AstroPrint should start on boot.  
+You can also start it manually:
 <pre>
   service astrobox start
 </pre>
-8. Check if it works
+7. Check if it works
 <pre>
   Open in the web browser: http://YOUR-DEVICE-IP:80
 </pre>
-9. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
+8. If someone will want it, I can also explain how securely access your AstroBox from outside the LAN via ssh reverse tunnelling.
 
 
 Setting up the virtual printer
