@@ -7,7 +7,7 @@ For now, it was tested on:
 -OrangePi zero
 -------
 
-Link to oryginal project: https://github.com/AstroPrint/AstroBox
+Link to original project: https://github.com/AstroPrint/AstroBox
 
 Current status
 -------
