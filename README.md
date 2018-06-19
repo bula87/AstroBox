@@ -1,4 +1,4 @@
-AstroBox Software - Fork to fix "manual instalation from oryginal source". 
+AstroBox Software - Fork to fix "manual installation from original source". 
 =================
 For now, it was tested on:
 -------
