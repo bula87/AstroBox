@@ -24,6 +24,10 @@ fi
 echo "Installing python packages..."
 apt-get --assume-yes --allow-unauthenticated install python2.7 python-pip python-dev python-apt python-dbus python-gobject isc-dhcp-server ruby ruby-sass network-manager haproxy janus=0.2.5-1 gir1.2-gstreamer-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-omx gcodeanaylizer-astroprint astrobox-pip-dependencies
 
+apt-get --assume-yes install /AstroBox/toInstall/gstreamer1.0-omx_1.2.0-1_armhf.deb
+
+rm /AstroBox/toInstall/gstreamer1.0-omx_1.2.0-1_armhf.deb
+
 rm /etc/apt/sources.list.d/tmp_rpi.ppa.list
 
 cp /AstroBox/toInstall/* /. -rf
