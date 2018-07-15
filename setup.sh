@@ -18,7 +18,7 @@ fi
 
 if [ ! -f /etc/apt/sources.list.d/tmp_rpi.ppa.list ]; then
   echo "deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi" > /etc/apt/sources.list.d/tmp_rpi.ppa.list
-  apt-get update
+  apt-get --allow-unauthenticated update
 fi
 
 echo "Installing python packages..."
