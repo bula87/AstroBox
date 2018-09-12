@@ -30,6 +30,11 @@ rm /AstroBox/toInstall/gstreamer1.0-omx_1.2.0-1_armhf.deb
 
 rm /etc/apt/sources.list.d/tmp_rpi.ppa.list
 
+mkdir /AstroBox/Astro_master
+cd /AstroBox/Astro_master
+git clone https://github.com/AstroPrint/AstroBox.git
+cp /AstroBox/Astro_master/AstroBox/src /AstroBox/. -r
+cd /
 cp /AstroBox/toInstall/* /. -rf
 sync
 
