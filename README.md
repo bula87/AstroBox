@@ -14,6 +14,32 @@ Current status
 
 I was able to run AstroPrint software on my BBB and I get confirmation that it also works on OrangePi zero. My WiFi dongle is not supporting AstroBox AP functionality, so I don't know if it will work with supported one. WiFi works fine, I was able to connect to AstroPrint cloud and even do a software update. Main feature - connection with printer - also works without problem. So, enjoy the AstroPrint functionality on Beaglebone or OrangePi! If you test it on other platforms, please let me know, I will add it to the list of supported devices. 
 
+TIPS
+-------
+If you have problems with wifi, you can try to set it manually:
+Configure /etc/network/interfaces adding all your wifi data and restart wpa_supplicant service
+$ps aux | grep wpa
+$kill <WPA_SERVICE_ID>
+$ifup wlan0
+$ifconfig
+
+If you managed to connect to wifi edit your wpa_supplicant.service file to start your wifi interface at boot:
+$vi /lib/systemd/system/wpa_supplicant.service
+and comment line like that:
+#ExecStart=/sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+and add new one:
+ExecStart=/sbin/ifup wlan0
+
+Next configure astrobox to use manual network connection:
+$vi /etc/astrobox/config.yaml
+and add:
+network:
+  manager: manual
+
+reboot the box!
+  
+reference: https://astroprint.zendesk.com/hc/en-us/articles/207866186-Can-I-configure-the-Raspberry-Pi-network-myself-
+
 Installation instructions
 -------
 
