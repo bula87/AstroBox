@@ -23,20 +23,20 @@ $kill <WPA_SERVICE_ID>
 $ifup wlan0
 $ifconfig
 
-If you managed to connect to wifi edit your wpa_supplicant.service file to start your wifi interface at boot:
-$vi /lib/systemd/system/wpa_supplicant.service
-and comment line like that:
-#ExecStart=/sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
-and add new one:
-ExecStart=/sbin/ifup wlan0
-
-Next configure astrobox to use manual network connection:
-$vi /etc/astrobox/config.yaml
-and add:
-network:
-  manager: manual
-
-reboot the box!
+If you managed to connect to wifi edit your wpa_supplicant.service file to start your wifi interface at boot:  
+$vi /lib/systemd/system/wpa_supplicant.service  
+and comment line like that:  
+#ExecStart=/sbin/wpa_supplicant -u -s -O /run/wpa_supplicant  
+and add new one:  
+ExecStart=/sbin/ifup wlan0  
+  
+Next configure astrobox to use manual network connection:  
+$vi /etc/astrobox/config.yaml  
+and add:  
+network:  
+  manager: manual  
+  
+reboot the box!  
   
 reference: https://astroprint.zendesk.com/hc/en-us/articles/207866186-Can-I-configure-the-Raspberry-Pi-network-myself-
 
